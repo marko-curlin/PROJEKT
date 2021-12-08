@@ -1,0 +1,27 @@
+plyfile             - took 1.9938790798187256 seconds to load Vinograd_mali.ply
+self written ply.py - took 0.10284662246704102 seconds to load Vinograd_mali.ply
+pywavefront         - errors out
+open3d              - took 0.05296897888183594 seconds to load HECTOR_2020-07-20-13-53-55-segmented_vineyard.ply
+
+self written ply.py: result
+    dict (size 2)
+        "points": pandas.DataFrame
+
+open3d: result
+    <class 'open3d.cpu.pybind.geometry.PointCloud'>
+        object.points - Vector3dVector std::vector <Eigen::Vector3d> Use numpy.asarray() to access data
+
+        np.asarray(object.points) - ndarray: (nr_of_points, 3)
+
+
+CONCLUSION: use self written ply.py for pandas DataFrame, use open3d for numpy array
+
+PROJEKT:
+vizualizacija - DONE
+format=point cloud - DONE
+odredivanje nagiba oblaka tocaka
+pronalazak visine koje odgovara za stvaranje tlocrta (prereza)
+...
+
+Odredivanje nagiba: podijelit vinograd na 3 dijela. izbacit neki postotak outlier-a, pronaci teziste svakog od tih dijelova
+te onda iz te 3 tocke povuci pravac koji odreduje nagib
