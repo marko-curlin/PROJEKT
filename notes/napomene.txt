@@ -25,7 +25,11 @@ uzet 2D presjek
 pronaci redove u 2D
 ...
 
-Odredivanje nagiba: podijelit vinograd na 3 dijela. izbacit neki postotak outlier-a, pronaci teziste svakog od tih dijelova
-te onda iz te 3 tocke povuci pravac koji odreduje nagib
+pronaci redove u 2D: prvo opet primjenit statistical removal. pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
 
-pronaci redove u 2D: grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
+
+REDOSLJED IZVODENJA SKRIPTI:
+c++ remove statistical outlier
+find_plane.py
+map_3d_to_2d.py
+remove_noise.py

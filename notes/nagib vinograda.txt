@@ -3,3 +3,5 @@ Linearna regresija, ili PCA (Principal component analysis)
 Lin. reg. preko numpy, PCA je implementiran u CloudCompare. Treba viditi kako exportati te podatke, mogućnost automatizacije i je li to OpenSource.
 CloudCompare - GPL licenca. Dopusta slobodno koristenje, ali sav software treba ostati u toj licenci.
 
+NAPOMENA: ulazna datoteka je bio file s inlier parametrima k=50, sigma=1
+NAPOMENA: 0.1 se cini kao idealni razmak od plane-a nagiba za PCA. ta slika je poslana profesoru Kovačiću

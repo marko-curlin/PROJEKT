@@ -1,14 +1,18 @@
 LINEAR REGRESSION:
-file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard.ply
+    file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard.ply
 
-regression coefficient: [-0.17306203 -0.03170125] -> z = 1
-regression offset: 6.8631874049388895
+    regression coefficient: [-0.17306203 -0.03170125] -> z = 1
+    regression offset: 6.8631874049388895
 
-plane implicit equation: -0.17306203*x -0.03170125*y + z - 6.8631874049388895 = 0
+    plane implicit equation: -0.17306203*x -0.03170125*y + z - 6.8631874049388895 = 0
 
 PCA (Principal component analysis):
-file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard-inline.ply
-results acquired through CloudCompare "fit plane" on the point cloud
+    file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard-inline.ply
+    results acquired through CloudCompare "fit plane" on the point cloud
 
-normal: [0.168306, 0.0300822, 0.985276]
-center (point on plane): -27.267776, 1.233677, 11.562071
+    normal: [0.168306, 0.0300822, 0.985276]
+    center (point on plane): -27.267776, 1.233677, 11.562071
+
+
+RANSAC:
+    o3d implements this in function `segment_plane`!
