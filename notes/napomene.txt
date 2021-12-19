@@ -19,9 +19,13 @@ CONCLUSION: use self written ply.py for pandas DataFrame, use open3d for numpy a
 PROJEKT:
 vizualizacija - DONE
 format=point cloud - DONE
-odredivanje nagiba oblaka tocaka
-pronalazak visine koje odgovara za stvaranje tlocrta (prereza)
+odredivanje nagiba oblaka tocaka - DONE
+pronalazak visine koje odgovara za stvaranje tlocrta (prereza) - DONE (odma iz gornjeg problema)
+uzet 2D presjek
+pronaci redove u 2D
 ...
 
 Odredivanje nagiba: podijelit vinograd na 3 dijela. izbacit neki postotak outlier-a, pronaci teziste svakog od tih dijelova
 te onda iz te 3 tocke povuci pravac koji odreduje nagib
+
+pronaci redove u 2D: grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
