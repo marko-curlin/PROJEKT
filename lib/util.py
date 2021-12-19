@@ -6,29 +6,35 @@ import open3d as o3d
 from lib.constants import *
 
 
-def get_ply_file_path(version):
-    if version == "OG":
+def get_ply_file_path(version) -> Path:
+    if version == OG:
         return construct_path(OBJ_FOLDER, OG_PLY_FILE_NAME)
-    elif version == "inliers":
-        return construct_path(OBJ_FOLDER, OG_PLY_FILE_NAME)
+    elif version == INLIERS:
+        return construct_path(OBJ_FOLDER, INLINE_PLY_FILE_NAME)
+    elif version == SLICE_01:
+        return construct_path(OBJ_FOLDER, SLICE01_PLY_FILE_NAME)
 
     raise Exception("No correct version chosen")
 
 
-def construct_path(*paths):
+def construct_path(*paths) -> Path:
     path = Path()
     for _path in paths:
         path = path.joinpath(_path)
     return path
 
 
-def ply_file_to_numpy_array(ply_file_path):
-    scene = o3d.io.read_point_cloud(str(ply_file_path))
+def read_ply_file_as_numpy_array(ply_file_path) -> np.ndarray:
+    scene = read_ply_file_as_o3d_point_cloud(ply_file_path)
     return np.asarray(scene.points)
 
 
-def point_cloud_to_ply_file(point_cloud, ply_file_path):
-    if not o3d.io.write_point_cloud(str(ply_file_path), point_cloud, print_progress=True):
+def read_ply_file_as_o3d_point_cloud(ply_file_path) -> o3d.geometry.PointCloud:
+    return o3d.io.read_point_cloud(str(ply_file_path))
+
+
+def write_point_cloud_to_file(point_cloud: o3d.geometry.PointCloud, ply_file_path, write_ascii=True):
+    if not o3d.io.write_point_cloud(str(ply_file_path), point_cloud, write_ascii=write_ascii, print_progress=True):
         raise Exception("Point cloud write failed")
 
 
