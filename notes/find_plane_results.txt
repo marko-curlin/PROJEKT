@@ -14,5 +14,13 @@ PCA (Principal component analysis):
     center (point on plane): -27.267776, 1.233677, 11.562071
 
 
-RANSAC:
-    o3d implements this in function `segment_plane`!
+RANSAC (o3d):
+    file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard-inline.ply
+
+    distance_threshold=0.4, num_iterations=700
+        plane coefficient: [0.19207795 0.10531912 0.97571202]
+        plane offset: -5.56161166589185
+
+    distance_threshold=0.2, num_iterations=500
+        plane coefficient: [0.19244489 0.09193425 0.97699184]
+        plane offset: -5.499445239916877

@@ -21,15 +21,21 @@ vizualizacija - DONE
 format=point cloud - DONE
 odredivanje nagiba oblaka tocaka - DONE
 pronalazak visine koje odgovara za stvaranje tlocrta (prereza) - DONE (odma iz gornjeg problema)
-uzet 2D presjek
+uzet 2D presjek - DONE
 pronaci redove u 2D
+pronaci pocetak i kraj reda
 ...
 
-pronaci redove u 2D: prvo opet primjenit statistical removal. pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
+pronaci redove u 2D: prvo opet primjenit statistical removal (DONE). pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
+                     - k-means uz min distance vjerojatno ne bi dobro radio. vektorsko odredivanje udaljenosti (vektor usporedbe je usmjerenje redova iz 2D) kao mjera
 
 
-REDOSLJED IZVODENJA SKRIPTI:
+REDOSLIJED IZVODENJA SKRIPTI:
 c++ remove statistical outlier
 find_plane.py
 map_3d_to_2d.py
 remove_noise.py
+
+
+ALTERNATIVNO RIJESENJE:
+remove statistical outliers. RANSAC za pronaci pod, i onda vise iteracija RANSAC-a (gdje se svaki red uklanja kad je naden), za pronaci svaki red
