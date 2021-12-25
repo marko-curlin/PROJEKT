@@ -28,7 +28,7 @@ pronaci pocetak i kraj reda
 
 pronaci redove u 2D: prvo opet primjenit statistical removal (DONE). pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
                      - k-means uz min distance vjerojatno ne bi dobro radio. vektorsko odredivanje udaljenosti (vektor usporedbe je usmjerenje redova iz 2D) kao mjera
-
+                     - EM algoritam umjesto k-means
 
 REDOSLIJED IZVODENJA SKRIPTI:
 c++ remove statistical outlier
@@ -39,3 +39,4 @@ remove_noise.py
 
 ALTERNATIVNO RIJESENJE:
 remove statistical outliers. RANSAC za pronaci pod, i onda vise iteracija RANSAC-a (gdje se svaki red uklanja kad je naden), za pronaci svaki red
+    - RANSAC u ovom slucaju opet odredi ravninu koja prolazi kroz sve tocke
