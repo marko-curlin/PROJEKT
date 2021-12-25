@@ -8,10 +8,10 @@ def main():
     # p0 is a point on plane
     p0 = np.array([-27.267776, 1.233677, 11.562071])
 
-    ply_file_path = util.get_ply_file_path("inliers")
+    ply_file_path = util.get_ply_file_path(util.INLIERS)
     point_cloud = util.read_ply_file_as_numpy_array(ply_file_path)
 
-    distance_to_slice = 0.15
+    distance_to_slice = 0.1
     cloud_slice = util.slice_3d_with_plane(normal, p0, point_cloud, distance_to_slice)
 
     cloud_slice_object = util.numpy_array_to_point_cloud_object(cloud_slice)
