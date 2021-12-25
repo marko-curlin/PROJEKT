@@ -76,7 +76,29 @@ def slice_3d_with_plane(plane_normal, point_on_plane, point_cloud, distance_to_s
     return plane_slice
 
 
+def get_points_above_plane(plane_normal, point_on_plane, point_cloud, max_distance=.5):
+    plane_slice = np.empty((len(point_cloud), 3))
+
+    points_above_plane_counter = 0
+    for point in point_cloud:
+        p_ = point - point_on_plane
+
+        dist_to_plane = np.dot(p_, plane_normal)
+        # dist_to_plane is vector distance <-inf, +inf>
+        if 0 < dist_to_plane < max_distance:
+            plane_slice[points_above_plane_counter] = point
+            points_above_plane_counter += 1
+
+    plane_slice = np.delete(plane_slice, slice(points_above_plane_counter, len(plane_slice)), axis=0)
+
+    return plane_slice
+
+
 def numpy_array_to_point_cloud_object(np_array):
     point_cloud = o3d.geometry.PointCloud()
     point_cloud.points = o3d.utility.Vector3dVector(np_array)
     return point_cloud
+
+
+def draw_cloud(*point_clouds):
+    o3d.visualization.draw_geometries(point_clouds)
