@@ -13,6 +13,10 @@ def get_ply_file_path(version) -> Path:
         return construct_path(OBJ_FOLDER, INLINE_PLY_FILE_NAME)
     elif version == SLICE_01:
         return construct_path(OBJ_FOLDER, SLICE01_PLY_FILE_NAME)
+    elif version == ABOVE_GROUND_06:
+        return construct_path(OBJ_FOLDER, ABOVE_GROUND_06_PLY_FILE_NAME)
+    elif version == SLICE_01_INLIERS_K_20_DEV_3:
+        return construct_path(OBJ_FOLDER, SLICE01_INLIERS_K_20_DEV_3_PLY_FILE_NAME)
 
     raise Exception("No correct version chosen")
 
@@ -102,3 +106,7 @@ def numpy_array_to_point_cloud_object(np_array):
 
 def draw_cloud(*point_clouds):
     o3d.visualization.draw_geometries(point_clouds)
+
+
+def remove_z_axis(data):
+    return data[:, 0:2]
