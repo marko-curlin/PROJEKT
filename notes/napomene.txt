@@ -28,13 +28,16 @@ pronaci pocetak i kraj reda
 
 pronaci redove u 2D: prvo opet primjenit statistical removal (DONE). pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
                      - k-means uz min distance vjerojatno ne bi dobro radio. vektorsko odredivanje udaljenosti (vektor usporedbe je usmjerenje redova iz 2D) kao mjera
-                     - EM algoritam umjesto k-means
+                     - EM algoritam umjesto k-means -> isto ne daje dobra rijesenja. vidljivo u folderu `classification`
+
+                     - vektorsko odredivanje udaljenosti
 
 REDOSLIJED IZVODENJA SKRIPTI:
-c++ remove statistical outlier
+c++ remove statistical outlier (0.664778s to process Vinograd_mali-Cloud.ply; 0.4367527961730957s for remove_noise.py on same file with same results)
 find_plane.py
-map_3d_to_2d.py
+map_3d_to_2d.py/remove_ground.py
 remove_noise.py
+group_vineyard_rows.py
 
 
 ALTERNATIVNO RIJESENJE:

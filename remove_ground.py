@@ -5,9 +5,9 @@ from lib import util
 
 def main():
     # plane from PCA on inliers point-cloud
-    normal = np.array([0.168306, 0.0300822, 0.985276])
+    normal = np.array([0.27795807, 0.11413809, 1])
     # p0 is a point on plane
-    p0 = np.array([-27.267776, 1.233677, 11.562071])
+    p0 = np.array([0, 0, 132.2347192775879])
 
     ply_file_path = util.get_ply_file_path(util.INLIERS)
     data_points = util.read_ply_file_as_numpy_array(ply_file_path)

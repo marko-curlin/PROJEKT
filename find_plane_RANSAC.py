@@ -4,7 +4,7 @@ import open3d as o3d
 
 
 def main():
-    ply_file_path = util.get_ply_file_path(util.INLIERS)
+    ply_file_path = util.get_ply_file_path(util.SMALL_VINEYARD)
     point_cloud = util.read_ply_file_as_o3d_point_cloud(ply_file_path)
 
     plane_model, inliers = point_cloud.segment_plane(distance_threshold=0.2, ransac_n=3, num_iterations=500)  # i bez seeda u prosjeku daje isti rezultat

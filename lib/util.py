@@ -112,4 +112,14 @@ def draw_cloud(*point_clouds):
 
 
 def remove_z_axis(data):
+    if data.ndim == 1:
+        return data[:2]
     return data[:, 0:2]
+
+
+def get_normal(coefficient):
+    return -coefficient[0], -coefficient[1], 1
+
+
+def get_point_on_cloud(coefficient, intercept):
+    return 0, 0, intercept

@@ -13,6 +13,10 @@ PCA (Principal component analysis):
     normal: [0.168306, 0.0300822, 0.985276]
     center (point on plane): -27.267776, 1.233677, 11.562071
 
+    in terminal, it can be fetched with:
+    $ CloudCompare -SILENT -O /home/marko/Desktop/PROJEKT/Objekti/<cloud_name>.ply -BEST_FIT_PLANE
+    parsing of the result is needed. for point_on_plane use the final column of first three rows in `Orientation matrix`
+
 
 RANSAC (o3d):
     file - objects/HECTOR_2020-07-20-13-53-55-segmented_vineyard-inline.ply
