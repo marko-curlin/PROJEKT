@@ -1,6 +1,7 @@
 from os.path import basename
 
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
 
@@ -19,6 +20,9 @@ def main():
     plt.scatter(point_cloud_data[:, 0], point_cloud_data[:, 1], c=y)
     plt.title(f'file={basename(ply_fle_path)}\nclassifier={type(classifier)} k={nr_of_groups}', fontsize=10)
     plt.show()
+
+    np.savetxt(util.construct_path(util.CLASSIFICATION_FOLDER, "slice_01_inliers_k=20_dev=3_k=6_rotated_y-axis.txt"),
+               np.hstack((point_cloud_data[:, 0:2], y.reshape(y.shape[0], 1))))
 
 
 if __name__ == '__main__':

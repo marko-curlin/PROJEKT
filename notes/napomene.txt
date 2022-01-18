@@ -22,7 +22,8 @@ format=point cloud - DONE
 odredivanje nagiba oblaka tocaka - DONE
 pronalazak visine koje odgovara za stvaranje tlocrta (prereza) - DONE (odma iz gornjeg problema)
 uzet 2D presjek - DONE
-pronaci redove u 2D
+pronaci grupe redova u 2D
+uprosjeciti grupe u linije
 pronaci pocetak i kraj reda
 ...
 
@@ -38,6 +39,7 @@ find_plane.py
 map_3d_to_2d.py/remove_ground.py
 remove_noise.py
 find_vineyard_angle_ransac.py
+group_vineyard_rows_GaussianMixture.py
 
 
 
