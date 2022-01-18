@@ -7,6 +7,7 @@ import lib.constants as c
 from lib.constants import *
 
 
+# noinspection PyProtectedMember
 def get_ply_file_path(version) -> Path:
     if version == OG:
         return construct_path(OBJ_FOLDER, c._OG_PLY_FILE_NAME)
@@ -20,6 +21,8 @@ def get_ply_file_path(version) -> Path:
         return construct_path(OBJ_FOLDER, c._SLICE01_INLIERS_K_20_DEV_3_PLY_FILE_NAME)
     elif version == SMALL_VINEYARD:
         return construct_path(OBJ_FOLDER, c._SMALL_VINEYARD_FILE_NAME)
+    elif version == SLICE_01_INLIERS_K_20_DEV_3_ROTATED:
+        return construct_path(OBJ_FOLDER, c._SLICE01_INLIERS_K_20_DEV_3_PLY_FILE_NAME_ROTATED)
 
     raise Exception("No correct version chosen")
 

@@ -5,6 +5,8 @@ _SLICE01_PLY_FILE_NAME = "vineyard_inliers_PCA_slice-slice_dst=0.1.ply"
 _SLICE01_INLIERS_K_20_DEV_3_PLY_FILE_NAME = "vineyard_inliers_PCA_slice-slice_dst=0.1_inliers-k=20-std_dev=3.ply"
 _ABOVE_GROUND_06_PLY_FILE_NAME = "vineyard_inliers_above_ground-max_dst=0.6.ply"
 _SMALL_VINEYARD_FILE_NAME = "Vinograd_mali-Cloud.ply"
+_SLICE01_INLIERS_K_20_DEV_3_PLY_FILE_NAME_ROTATED = \
+    "vineyard_inliers_PCA_slice-slice_dst=0.1_inliers-k=20-std_dev=3_rotated_2D.ply"
 
 OG = "OG"
 INLIERS = "inliers"
@@ -12,3 +14,4 @@ SLICE_01 = "slice_dst=0.1"
 SLICE_01_INLIERS_K_20_DEV_3 = "slice_dst=0.1-inliers_k=20_dev=3"
 ABOVE_GROUND_06 = "above_ground-max_dst=0.6"
 SMALL_VINEYARD = "small_vineyard"
+SLICE_01_INLIERS_K_20_DEV_3_ROTATED = "slice_dst=0.1-inliers_k=20_dev=3_rotated"
