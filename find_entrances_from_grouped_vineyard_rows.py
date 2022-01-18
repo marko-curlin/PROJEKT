@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 import numpy as np
 from matplotlib import pyplot as plt
 from skimage.measure import ransac, LineModelND
@@ -13,16 +11,16 @@ def find_vineyard_row_entrances(sorted_lines):
         first_left_point = sorted_lines[i][0]
         second_left_point = sorted_lines[i+1][0]
 
-        left_entrance = deepcopy(first_left_point) if first_left_point[0] < second_left_point[0] \
-            else deepcopy(second_left_point)
+        left_entrance = [0, 0]
+        left_entrance[0] = (first_left_point[0] + second_left_point[0])/2
         left_entrance[1] = (first_left_point[1] + second_left_point[1])/2
 
         first_right_point = sorted_lines[i][1]
         second_right_point = sorted_lines[i+1][1]
 
-        right_entrance = deepcopy(first_right_point) if first_right_point[0] > second_right_point[0] \
-            else deepcopy(second_right_point)
-        right_entrance[1] = (first_right_point[1] + second_right_point[1]) / 2
+        right_entrance = [0, 0]
+        right_entrance[0] = (first_right_point[0] + second_right_point[0])/2
+        right_entrance[1] = (first_right_point[1] + second_right_point[1])/2
 
         entrances.append(left_entrance)
         entrances.append(right_entrance)
