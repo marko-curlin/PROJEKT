@@ -37,7 +37,8 @@ c++ remove statistical outlier (0.664778s to process Vinograd_mali-Cloud.ply; 0.
 find_plane.py
 map_3d_to_2d.py/remove_ground.py
 remove_noise.py
-group_vineyard_rows.py
+find_vineyard_angle_ransac.py
+
 
 
 ALTERNATIVNO RIJESENJE:

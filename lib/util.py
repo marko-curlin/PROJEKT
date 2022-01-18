@@ -45,6 +45,15 @@ def write_point_cloud_to_file(point_cloud: o3d.geometry.PointCloud, ply_file_pat
         raise Exception("Point cloud write failed")
 
 
+def write_numpy_array_to_file(np_array: np.ndarray, ply_file_path, write_ascii=True):
+    point_cloud = numpy_array_to_point_cloud_object(np_array)
+    write_point_cloud_to_file(point_cloud, ply_file_path, write_ascii)
+
+
+def o3d_point_cloud_to_numpy_array(point_cloud) -> np.ndarray:
+    return np.asarray(point_cloud.points)
+
+
 def map_3d_to_plane(plane_normal, point_on_plane, point_cloud):
     mapped_points = np.empty((len(point_cloud), 3))
 
@@ -103,7 +112,14 @@ def get_points_above_plane(plane_normal, point_on_plane, point_cloud, max_distan
 
 def numpy_array_to_point_cloud_object(np_array):
     point_cloud = o3d.geometry.PointCloud()
-    point_cloud.points = o3d.utility.Vector3dVector(np_array)
+    if np_array.shape[-1] == 3:
+        point_cloud.points = o3d.utility.Vector3dVector(np_array)
+    elif np_array.shape[-1] == 2:
+        # expand third dimension with zeros
+        np_array = np.hstack((np_array, np.zeros((np_array.shape[0], 1), dtype=np_array.dtype)))
+        point_cloud.points = o3d.utility.Vector3dVector(np_array)
+    else:
+        raise Exception(f"can't create pointCloud with shape: {np_array.shape}")
     return point_cloud
 
 
