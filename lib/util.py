@@ -142,3 +142,14 @@ def get_normal(coefficient):
 
 def get_point_on_cloud(coefficient, intercept):
     return 0, 0, intercept
+
+
+# taken from https://stackoverflow.com/a/58781388/6673178
+def rotate_points(points, origin=(0, 0), degrees=0):
+    angle = np.deg2rad(degrees)
+    # noinspection PyPep8Naming
+    R = np.array([[np.cos(angle), -np.sin(angle)],
+                  [np.sin(angle),  np.cos(angle)]])
+    o = np.atleast_2d(origin)
+    points = np.atleast_2d(points)
+    return np.squeeze((R @ (points.T - o.T) + o.T).T)

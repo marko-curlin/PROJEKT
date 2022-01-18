@@ -65,7 +65,21 @@ def main():
 
     ax.scatter(list(zip(*entrances))[0], list(zip(*entrances))[1], 1)
 
+    origin = (-28.23891965, -3.89433624)
+    direction = (-0.99870772,  0.05082218)
+
+    angle = np.math.atan2(direction[1], direction[0])
+    if angle > np.pi/2:
+        angle = angle - np.pi
+    angle_degrees = np.degrees(angle)
+
+    real_entrances = util.rotate_points(entrances, origin=origin, degrees=angle_degrees)
+
+    ax.scatter(list(zip(*real_entrances))[0], list(zip(*real_entrances))[1], 1.5)
+
     plt.show()
+
+    return real_entrances
 
 
 if __name__ == '__main__':
