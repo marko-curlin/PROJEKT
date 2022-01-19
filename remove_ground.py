@@ -3,6 +3,11 @@ import numpy as np
 from lib import util
 
 
+def remove_ground(point_cloud_data, normal, point_on_plane, max_distance=5):
+    points_above_plane = util.get_points_above_plane(normal, point_on_plane, point_cloud_data, max_distance=max_distance)
+    return points_above_plane
+
+
 def main():
     # plane from PCA on inliers point-cloud
     normal = np.array([0.27795807, 0.11413809, 1])

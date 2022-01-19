@@ -5,6 +5,26 @@ from skimage.measure import ransac, LineModelND
 from lib import util
 
 
+def find_entrances_from_grouped_vineyard_rows(point_cloud_2d, y, residual_threshold=0.1, max_trials=50):
+    lines = []
+    for i in np.unique(y):
+        points_in_row = point_cloud_2d[y == i]
+
+        model, inliers = ransac(points_in_row, LineModelND, min_samples=2,
+                                residual_threshold=residual_threshold, max_trials=max_trials)
+
+        inlier_points = points_in_row[inliers]
+
+        min_index, max_index = np.argmin(inlier_points[:, 0]), np.argmax(inlier_points[:, 0])
+        lines.append((inlier_points[min_index], inlier_points[max_index]))
+
+    lines.sort(key=lambda line: line[0][1])
+
+    entrances = find_vineyard_row_entrances(lines)
+
+    return entrances
+
+
 def find_vineyard_row_entrances(sorted_lines):
     entrances = []
     for i in range(len(sorted_lines)-1):
@@ -79,7 +99,17 @@ def main():
 
     plt.show()
 
-    return real_entrances
+    print(real_entrances)
+# [[-42.67066412  -2.32738735]
+#  [-12.14289997  -3.89336355]
+#  [-42.59338645  -0.52349363]
+#  [-12.94748769  -1.82434489]
+#  [-42.32114541   1.66136394]
+#  [-14.20885938   0.4228698 ]
+#  [-42.11761097   3.83111381]
+#  [-15.17969796   2.2806417 ]
+#  [-41.45527506   5.69998256]
+#  [-17.12025386   4.39097713]]
 
 
 if __name__ == '__main__':

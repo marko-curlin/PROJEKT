@@ -5,6 +5,16 @@ from skimage.measure import ransac, LineModelND
 from lib import util
 
 
+def find_vineyard_angle_ransac(point_cloud_data, residual_threshold=0.1, max_trials=500):
+    point_cloud_2d = util.remove_z_axis(point_cloud_data)
+
+    model, _ = ransac(point_cloud_2d, LineModelND, min_samples=2,
+                      residual_threshold=residual_threshold, max_trials=max_trials)
+
+    origin, direction = model.params
+    return origin, direction
+
+
 def main():
     ply_file_path = util.get_ply_file_path(util.SLICE_01_INLIERS_K_20_DEV_3)
     point_cloud = util.read_ply_file_as_numpy_array(ply_file_path)

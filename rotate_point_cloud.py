@@ -5,6 +5,16 @@ import numpy as np
 from lib import util
 
 
+def level_off_point_cloud(point_cloud_data, origin, direction):
+    angle_degrees = util.get_degrees_from_direction(direction)
+
+    point_cloud_2d = util.remove_z_axis(point_cloud_data)
+
+    rotated_2d = util.rotate_points(point_cloud_2d, origin=origin, degrees=-angle_degrees)
+
+    return rotated_2d
+
+
 def main():
     ply_file_path = util.get_ply_file_path(util.SLICE_01_INLIERS_K_20_DEV_3)
     point_cloud = util.read_ply_file_as_numpy_array(ply_file_path)

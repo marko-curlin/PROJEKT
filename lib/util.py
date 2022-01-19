@@ -153,3 +153,12 @@ def rotate_points(points, origin=(0, 0), degrees=0):
     o = np.atleast_2d(origin)
     points = np.atleast_2d(points)
     return np.squeeze((R @ (points.T - o.T) + o.T).T)
+
+
+def get_degrees_from_direction(direction):
+    angle = np.math.atan2(direction[1], direction[0])
+    if abs(angle) > np.pi / 2:
+        angle = angle - np.pi
+    angle_degrees = np.degrees(angle)
+
+    return angle_degrees

@@ -8,6 +8,14 @@ from sklearn.cluster import KMeans
 from lib import util
 
 
+def group_vineyard_rows(point_cloud_data, nr_of_groups):
+    classifier = KMeans(nr_of_groups).fit(point_cloud_data[:, 1].reshape(-1, 1))
+
+    y = classifier.predict(point_cloud_data[:, 1].reshape(-1, 1))
+
+    return point_cloud_data, y
+
+
 def main():
     ply_fle_path = util.get_ply_file_path(util.SLICE_01_INLIERS_K_20_DEV_3_ROTATED)
     point_cloud_data = util.read_ply_file_as_numpy_array(ply_fle_path)

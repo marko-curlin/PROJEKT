@@ -4,6 +4,13 @@ import open3d as o3d
 
 from os import path
 
+PointCloud = o3d.geometry.PointCloud
+
+
+def remove_noise(point_cloud: PointCloud, nr_neighbours=50, std_ratio=1.) -> PointCloud:
+    inlier_cloud, indices = point_cloud.remove_statistical_outlier(nb_neighbors=nr_neighbours, std_ratio=std_ratio)
+    return inlier_cloud
+
 
 def display_inlier_outlier(cloud, ind):
     inlier_cloud = cloud.select_by_index(ind)

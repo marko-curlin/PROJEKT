@@ -22,10 +22,10 @@ format=point cloud - DONE
 odredivanje nagiba oblaka tocaka - DONE
 pronalazak visine koje odgovara za stvaranje tlocrta (prereza) - DONE (odma iz gornjeg problema)
 uzet 2D presjek - DONE
-pronaci grupe redova u 2D
-uprosjeciti grupe u linije
-pronaci pocetak i kraj reda
-...
+pronaci grupe redova u 2D - DONE
+uprosjeciti grupe u linije - sort of DONE
+pronaci pocetak i kraj reda - DONE
+odrediti ulaze - DONE
 
 pronaci redove u 2D: prvo opet primjenit statistical removal (DONE). pa grupiranje tocaka s k-means uzimajuci min distance kao mjeru. iz toga uprosjecit tocke i povuc crtu
                      - k-means uz min distance vjerojatno ne bi dobro radio. vektorsko odredivanje udaljenosti (vektor usporedbe je usmjerenje redova iz 2D) kao mjera
@@ -39,8 +39,10 @@ find_plane.py
 map_3d_to_2d.py/remove_ground.py
 remove_noise.py
 find_vineyard_angle_ransac.py
+rotate_pointcloud.py
 group_vineyard_rows_GaussianMixture.py
-
+find_entrances_from_grouped_vineyard_rows.py
+rotate_pointcloud.py
 
 
 ALTERNATIVNO RIJESENJE:
