@@ -17,9 +17,9 @@ def show_entrances(points_above_plane, entrances):
     s = 0.1
 
     fig, ax = plt.subplots()
-    ax.scatter(data[:, 0], data[:, 1], s)
+    ax.scatter(data[:, 0], data[:, 1], s, marker='.')
 
-    ax.scatter(list(zip(*entrances))[0], list(zip(*entrances))[1], 1)
+    ax.scatter(list(zip(*entrances))[0], list(zip(*entrances))[1], 10, marker='x')
 
     plt.show()
 

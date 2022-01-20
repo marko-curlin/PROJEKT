@@ -3,6 +3,17 @@ from lib import util
 import open3d as o3d
 
 
+def find_plane(point_cloud, distance_threshold=0.2, num_iterations=500):
+    plane_model, _ = point_cloud.segment_plane(distance_threshold=distance_threshold,
+                                               ransac_n=3,
+                                               num_iterations=num_iterations)
+
+    plane_normal = util.get_normal(plane_model[:3])
+    point_on_plane = util.get_point_on_cloud(plane_model[:3], plane_model[3])
+
+    return plane_normal, point_on_plane
+
+
 def main():
     ply_file_path = util.get_ply_file_path(util.SMALL_VINEYARD)
     point_cloud = util.read_ply_file_as_o3d_point_cloud(ply_file_path)
